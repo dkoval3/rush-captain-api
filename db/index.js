@@ -5,18 +5,6 @@ const pool = mysql.createPool(creds);
 
 let rushCaptainDB = {};
 
-// Test API call that gets all users from the database
-rushCaptainDB.all = () => {
-    return new Promise((resolve, reject) => {
-        pool.query('SELECT * FROM users;', (err, results) => {
-            if (err) {
-                return reject(err);
-            }
-            return resolve(results);
-        });
-    });
-};
-
 // Used to authenticate login credentials
 // Could replace id with an array if multiple params
 // Using ? instead of string interpolation prevents SQL injection
